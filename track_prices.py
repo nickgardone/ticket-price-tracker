@@ -14,6 +14,8 @@ import requests
 
 SCRIPT_DIR = Path(__file__).parent
 HISTORY_FILE = SCRIPT_DIR / "price_history.json"
+LATEST_REPORT_FILE = SCRIPT_DIR / "latest_report.txt"
+REPORTS_DIR = SCRIPT_DIR / "reports"
 
 NOTIFY_EMAIL = os.environ.get("NOTIFY_EMAIL", "ngardone@gmail.com").strip()
 GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "").strip().replace(" ", "")
@@ -282,8 +284,9 @@ def build_report(history_data: dict, seatgeek: dict | None, ticketmaster: dict |
 
 
 def send_email(body: str) -> None:
+    """Best-effort — email is a nice-to-have. Never let it block the report file or commit."""
     if not GMAIL_APP_PASSWORD:
-        print("[ERROR] GMAIL_APP_PASSWORD not set — skipping email")
+        print("[email] GMAIL_APP_PASSWORD not set — skipping")
         return
     date_str = datetime.now().strftime("%B %-d, %Y")
     subject = f"Bills vs Dolphins Ticket Report — {date_str}"
@@ -292,10 +295,13 @@ def send_email(body: str) -> None:
     msg["From"] = NOTIFY_EMAIL
     msg["To"] = NOTIFY_EMAIL
     msg.attach(MIMEText(body, "plain"))
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-        server.login(NOTIFY_EMAIL, GMAIL_APP_PASSWORD)
-        server.sendmail(NOTIFY_EMAIL, NOTIFY_EMAIL, msg.as_string())
-    print(f"Email sent to {NOTIFY_EMAIL}")
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=20) as server:
+            server.login(NOTIFY_EMAIL, GMAIL_APP_PASSWORD)
+            server.sendmail(NOTIFY_EMAIL, NOTIFY_EMAIL, msg.as_string())
+        print(f"[email] sent to {NOTIFY_EMAIL}")
+    except Exception as exc:
+        print(f"[email] failed, continuing anyway: {exc!r}")
 
 
 # ---------------------------------------------------------------------------
@@ -310,6 +316,11 @@ def main() -> None:
 
     report = build_report(history_data, seatgeek, ticketmaster)
     print(report)
+
+    LATEST_REPORT_FILE.write_text(report + "\n")
+    REPORTS_DIR.mkdir(exist_ok=True)
+    (REPORTS_DIR / f"{date.today().isoformat()}.txt").write_text(report + "\n")
+
     send_email(report)
 
     history_data["history"].append({

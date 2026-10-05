@@ -20,7 +20,7 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - name: Run tracker and send email
+      - name: Run tracker (email is best-effort; file output always runs)
         env:
           NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
@@ -28,10 +28,10 @@ jobs:
           TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
         run: python track_prices.py
 
-      - name: Commit updated price history
+      - name: Commit updated report and price history
         run: |
           git config user.name "ticket-price-tracker-bot"
           git config user.email "actions@github.com"
-          git add price_history.json
+          git add price_history.json latest_report.txt reports/
           git diff --cached --quiet || git commit -m "Daily price snapshot $(date -u +%Y-%m-%d)"
           git push

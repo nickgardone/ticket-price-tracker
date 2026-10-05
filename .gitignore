@@ -1,3 +1,5 @@
 __pycache__/
 *.pyc
 .env
+pull_notify_stdout.log
+pull_notify_stderr.log
