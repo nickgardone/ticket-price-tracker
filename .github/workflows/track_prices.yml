@@ -1,0 +1,37 @@
+name: Track ticket prices
+
+on:
+  schedule:
+    - cron: "30 13 * * *"  # ~8:30am America/Chicago (shifts an hour with DST)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Run tracker and send email
+        env:
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          SEATGEEK_CLIENT_ID: ${{ secrets.SEATGEEK_CLIENT_ID }}
+          TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
+        run: python track_prices.py
+
+      - name: Commit updated price history
+        run: |
+          git config user.name "ticket-price-tracker-bot"
+          git config user.email "actions@github.com"
+          git add price_history.json
+          git diff --cached --quiet || git commit -m "Daily price snapshot $(date -u +%Y-%m-%d)"
+          git push
