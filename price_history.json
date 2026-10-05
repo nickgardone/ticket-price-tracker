@@ -3,5 +3,13 @@
   "venue": "Highmark Stadium, Orchard Park, NY",
   "date": "2026-11-22",
   "tracking_started": "2026-10-04",
-  "history": []
+  "history": [
+    {
+      "date": "2026-10-05",
+      "seatgeek_lowest": null,
+      "seatgeek_average": null,
+      "ticketmaster_min": null,
+      "ticketmaster_max": null
+    }
+  ]
 }

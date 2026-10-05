@@ -1,0 +1,22 @@
+TICKET PRICE REPORT — Miami Dolphins at Buffalo Bills
+Highmark Stadium, Orchard Park, NY — Sunday, November 22, 2026 (48 days away)
+As of October 5, 2026
+============================================================
+
+1) PRICE RATING
+   Unknown — no SeatGeek price available today
+
+2) CURRENT LOWEST PRICES
+   SeatGeek:      event found, but no listings posted yet
+                  https://seatgeek.com/buffalo-bills-tickets/11-22-2026-orchard-park-new-york-highmark-stadium-ny/nfl/18013980
+   Ticketmaster:  unavailable today
+   StubHub: check directly -> https://www.stubhub.com/buffalo-bills-orchard-park-tickets-11-22-2026/event/160447831/
+   Vivid Seats: check directly -> https://www.vividseats.com/buffalo-bills-tickets-orchard-park-highmark-stadium-3-1-2026/production/6488199
+
+3) TREND — WHERE PRICES ARE HEADED
+   Heuristic: with 45+ days out, inventory is typically still high and prices often soften over the coming weeks as the initial post-schedule-release demand fades.
+
+4) PLANNING NOTES
+   Days until kickoff: 48
+   If you want better seats for the same budget, this window is usually better for upgrading than waiting — prices rarely bottom out this early AND stay low.
+   Note: 'life of sale' history only covers the period since this tracker started (2026-10-04) — true from-day-one data isn't available via public APIs.
