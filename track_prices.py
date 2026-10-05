@@ -223,11 +223,17 @@ def build_report(history_data: dict, seatgeek: dict | None, ticketmaster: dict |
         "2) CURRENT LOWEST PRICES",
     ]
 
-    if seatgeek:
+    if seatgeek and seatgeek.get("lowest_price") is not None:
+        avg = seatgeek.get("average_price")
+        avg_str = f"${avg:.2f}" if avg is not None else "n/a"
         lines.append(
             f"   SeatGeek:      ${seatgeek['lowest_price']:.2f} lowest "
-            f"(avg ${seatgeek['average_price']:.2f}, {seatgeek.get('listing_count', '?')} listings)"
+            f"(avg {avg_str}, {seatgeek.get('listing_count', '?')} listings)"
         )
+        if seatgeek.get("url"):
+            lines.append(f"                  {seatgeek['url']}")
+    elif seatgeek:
+        lines.append("   SeatGeek:      event found, but no listings posted yet")
         if seatgeek.get("url"):
             lines.append(f"                  {seatgeek['url']}")
     else:
