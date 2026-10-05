@@ -15,8 +15,8 @@ import requests
 SCRIPT_DIR = Path(__file__).parent
 HISTORY_FILE = SCRIPT_DIR / "price_history.json"
 
-NOTIFY_EMAIL = os.environ.get("NOTIFY_EMAIL", "ngardone@gmail.com")
-GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "")
+NOTIFY_EMAIL = os.environ.get("NOTIFY_EMAIL", "ngardone@gmail.com").strip()
+GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "").strip().replace(" ", "")
 SEATGEEK_CLIENT_ID = os.environ.get("SEATGEEK_CLIENT_ID", "")
 TICKETMASTER_API_KEY = os.environ.get("TICKETMASTER_API_KEY", "")
 
