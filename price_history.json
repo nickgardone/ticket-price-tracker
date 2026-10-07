@@ -24,6 +24,13 @@
       "seatgeek_average": null,
       "ticketmaster_min": null,
       "ticketmaster_max": null
+    },
+    {
+      "date": "2026-10-07",
+      "seatgeek_lowest": null,
+      "seatgeek_average": null,
+      "ticketmaster_min": null,
+      "ticketmaster_max": null
     }
   ]
 }
