@@ -1,6 +1,6 @@
 TICKET PRICE REPORT — Miami Dolphins at Buffalo Bills
-Highmark Stadium, Orchard Park, NY — Sunday, November 22, 2026 (15 days away)
-As of November 7, 2026
+Highmark Stadium, Orchard Park, NY — Sunday, November 22, 2026 (14 days away)
+As of November 8, 2026
 ============================================================
 
 1) PRICE RATING
@@ -14,9 +14,9 @@ As of November 7, 2026
    Vivid Seats: check directly -> https://www.vividseats.com/buffalo-bills-tickets-orchard-park-highmark-stadium-3-1-2026/production/6488199
 
 3) TREND — WHERE PRICES ARE HEADED
-   Heuristic: this is usually the most negotiable window — far enough from game day that panic-buying hasn't started, but late enough that initial markups have cooled.
+   Heuristic: inside two weeks, expect more volatility — prices can dip as sellers unload late inventory, but can also spike if local demand or weather forecasts firm up.
 
 4) PLANNING NOTES
-   Days until kickoff: 15
-   If you want better seats for the same budget, this window is usually better for upgrading than waiting — prices rarely bottom out this early AND stay low.
+   Days until kickoff: 14
+   Getting close — if you see a price near or below the 'Low' range above, it's reasonable to stop waiting and buy.
    Note: 'life of sale' history only covers the period since this tracker started (2026-10-04) — true from-day-one data isn't available via public APIs.
