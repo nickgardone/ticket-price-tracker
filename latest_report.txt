@@ -1,6 +1,6 @@
 TICKET PRICE REPORT — Miami Dolphins at Buffalo Bills
-Highmark Stadium, Orchard Park, NY — Sunday, November 22, 2026 (13 days away)
-As of November 9, 2026
+Highmark Stadium, Orchard Park, NY — Sunday, November 22, 2026 (12 days away)
+As of November 10, 2026
 ============================================================
 
 1) PRICE RATING
@@ -17,6 +17,6 @@ As of November 9, 2026
    Heuristic: inside two weeks, expect more volatility — prices can dip as sellers unload late inventory, but can also spike if local demand or weather forecasts firm up.
 
 4) PLANNING NOTES
-   Days until kickoff: 13
+   Days until kickoff: 12
    Getting close — if you see a price near or below the 'Low' range above, it's reasonable to stop waiting and buy.
    Note: 'life of sale' history only covers the period since this tracker started (2026-10-04) — true from-day-one data isn't available via public APIs.
